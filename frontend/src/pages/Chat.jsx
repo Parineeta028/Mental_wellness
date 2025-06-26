@@ -1,4 +1,4 @@
-// src/pages/Chat.jsx
+
 import React, { useState, useRef, useEffect } from "react";
 import {
   FaRobot,

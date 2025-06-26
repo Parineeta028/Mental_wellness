@@ -1,4 +1,4 @@
-// src/pages/Dashboard.jsx
+
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import BackgroundLogo from "../components/BgLogo";

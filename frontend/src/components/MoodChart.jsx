@@ -1,4 +1,4 @@
-// src/components/MoodChart.jsx
+
 import React, { useEffect, useState } from "react";
 import { db } from "../services/firebase";
 import {

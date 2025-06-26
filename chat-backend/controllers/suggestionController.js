@@ -16,7 +16,7 @@ exports.getSuggestions = async (req, res) => {
     const result = await model.generateContent(prompt);
     const text = result.response.text();
 
-    // Convert Gemini output into array (bullet points or new lines)
+    
     const suggestions = text
       .split("\n")
       .map((line) => line.replace(/^[-•\d.]\s*/, "").trim())

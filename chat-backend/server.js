@@ -8,12 +8,11 @@ const app = express();
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
-// Register routes
 const chatRoutes = require("./routes/chat");
-const suggestionRoutes = require("./routes/suggestions"); // 👈 correct import
+const suggestionRoutes = require("./routes/suggestions"); 
 
 app.use("/api", chatRoutes);
-app.use("/api", suggestionRoutes); // 👈 mounted under /api
+app.use("/api", suggestionRoutes); 
 
 
 const PORT = process.env.PORT || 5000;

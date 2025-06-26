@@ -1,4 +1,4 @@
-// src/components/BackgroundLogo.jsx
+
 import React from "react";
 import background from "../assets/backLoggo.png"; // use the new background
 

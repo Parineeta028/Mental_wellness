@@ -12,7 +12,6 @@ exports.askAI = async (req, res) => {
     const response = await result.response;
     const text = response.text();
 
-    // Analyze emotion
     const { emotion, score } = analyzeEmotion(message);
     console.log("Emotion:", emotion, "Score:", score); 
 

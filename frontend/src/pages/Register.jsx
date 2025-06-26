@@ -5,6 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { db } from "../services/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import loginArt from "../assets/stress2.png";
+import { FaHome } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -35,15 +36,22 @@ const Register = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-[#faf6fd]">
-      {/* Left Illustration Panel */}
-      <div className="hidden md:flex w-1/2 items-center justify-center p-10 bg-gradient-to-br from-purple-100 to-purple-200">
-        <img
-          src={loginArt}
-          alt="Mental Health Illustration"
-          className="max-w-md w-full"
-        />
-      </div>
+    <div className="flex min-h-screen bg-[#faf6fd] relative">
+       <button
+      onClick={() => navigate("/")}
+      className="absolute top-4 right-4 flex items-center gap-2 text-purple-700 font-medium hover:underline"
+    >
+      <FaHome /> Home
+    </button>
+
+    {/* Left Illustration Panel */}
+    <div className="hidden md:flex w-1/2 items-center justify-center p-10 bg-gradient-to-br from-purple-100 to-purple-200">
+      <img
+        src={loginArt}
+        alt="Mental Health Illustration"
+        className="max-w-md w-full"
+      />
+    </div>
 
       {/* Right Form Panel */}
       <div className="flex flex-col justify-center items-center w-full md:w-1/2 px-6 py-12">

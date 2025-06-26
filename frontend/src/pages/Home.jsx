@@ -17,7 +17,7 @@ const Home = () => {
         <InfoCard />
       </div>
 
-      {/* Get Started Section */}
+     
       <section
         id="get-started-section"
         className="bg-white px-6 py-16 text-center flex flex-col items-center gap-6"
