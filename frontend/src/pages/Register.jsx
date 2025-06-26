@@ -1,4 +1,4 @@
-// src/pages/Register.jsx
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -44,7 +44,7 @@ const Register = () => {
       <FaHome /> Home
     </button>
 
-    {/* Left Illustration Panel */}
+
     <div className="hidden md:flex w-1/2 items-center justify-center p-10 bg-gradient-to-br from-purple-100 to-purple-200">
       <img
         src={loginArt}
@@ -53,7 +53,6 @@ const Register = () => {
       />
     </div>
 
-      {/* Right Form Panel */}
       <div className="flex flex-col justify-center items-center w-full md:w-1/2 px-6 py-12">
         <h2 className="text-3xl font-bold text-gray-800 mb-4">Create Account</h2>
         <p className="text-gray-600 mb-8">Join and take the first step to a better you ✨</p>

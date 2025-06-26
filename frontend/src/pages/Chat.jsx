@@ -1,8 +1,6 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import {
   FaRobot,
-  FaUser,
   FaArrowLeft,
   FaPaperPlane,
   FaTrash,
@@ -67,10 +65,21 @@ const Chat = () => {
         body: JSON.stringify({ emotion }),
       });
       const data = await res.json();
-      setSuggestions(data.suggestions);
-      setShowSuggestions(true);
+
+      if (data?.suggestions?.length > 0) {
+        setSuggestions(data.suggestions);
+      } else {
+        setSuggestions([
+          "You're chatting a lot today 😅. Try again tomorrow or upgrade your plan.",
+        ]);
+      }
     } catch (err) {
       console.error("Suggestion fetch error:", err);
+      setSuggestions([
+        "Oops! Suggestion service is temporarily unavailable. Try again later.",
+      ]);
+    } finally {
+      setShowSuggestions(true);
     }
   };
 
@@ -156,9 +165,10 @@ const Chat = () => {
         fetchSuggestions(data.emotion);
       }
     } catch (error) {
+      console.error("Chat fetch error:", error);
       const fallbackMessage = {
         role: "assistant",
-        content: "Sorry, something went wrong.",
+        content: "Sorry, something went wrong. Please try again later.",
         timestamp: Timestamp.now(),
       };
       setMessages((prev) => [...prev, fallbackMessage]);
@@ -260,11 +270,15 @@ const Chat = () => {
         {showSuggestions && (
           <div className="p-4 border-t bg-white">
             <h3 className="text-md font-semibold text-purple-800 mb-2">Based on how you feel, try:</h3>
-            <ul className="list-disc pl-5 text-sm text-gray-700">
-              {suggestions.map((sug, i) => (
-                <li key={i}>{sug}</li>
-              ))}
-            </ul>
+            {Array.isArray(suggestions) && suggestions.length > 0 ? (
+              <ul className="list-disc pl-5 text-sm text-gray-700">
+                {suggestions.map((sug, i) => (
+                  <li key={i}>{sug}</li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-sm text-gray-500">No suggestions available right now.</p>
+            )}
           </div>
         )}
 
