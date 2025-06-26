@@ -29,7 +29,7 @@
 
 ### Backend
 - Node.js with Express
-- Gemini API / OpenAI API (via REST endpoints)
+- Gemini API  (via REST endpoints)
 - Firebase Firestore (NoSQL database)
 
 
